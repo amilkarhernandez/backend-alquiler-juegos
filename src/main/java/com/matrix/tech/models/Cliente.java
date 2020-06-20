@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import javax.validation.constraints.NotNull;
+
+
 @Entity
 public class Cliente implements Serializable {
 
@@ -15,12 +18,15 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotNull(message = "No puede Ser vacio")
 	@Column(length = 200)
 	private String nombres;
 
+	@NotNull(message = "No puede Ser vacio")
 	@Column(length = 200)
 	private String apellidos;
 
+	@NotNull(message = "No puede Ser vacio")
 	@Column(length = 10)
 	private String telefono;
 
