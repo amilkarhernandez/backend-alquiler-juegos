@@ -51,6 +51,12 @@ public class AlquilerController {
 	public List<VideoJuego> filtrarVideojuegos(@PathVariable String term) {
 		return alquilerService.findByTitulo(term);
 	}
+	
+	@GetMapping("/alquiler/consulta/{nit}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Alquiler> buscarAlquilerNit(@PathVariable String nit) {
+		return (List<Alquiler>) alquilerService.findByNit(nit);
+	}
 
 	@PostMapping("/facturas")
 	@ResponseStatus(HttpStatus.CREATED)

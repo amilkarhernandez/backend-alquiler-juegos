@@ -26,6 +26,10 @@ public class Cliente implements Serializable {
 	private Long id;
 
 	@NotNull(message = "No puede Ser vacio")
+	@Column(length = 11)
+	private String nit;
+
+	@NotNull(message = "No puede Ser vacio")
 	@Column(length = 200)
 	private String nombres;
 
@@ -53,6 +57,14 @@ public class Cliente implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getNit() {
+		return nit;
+	}
+
+	public void setNit(String nit) {
+		this.nit = nit;
 	}
 
 	public String getNombres() {

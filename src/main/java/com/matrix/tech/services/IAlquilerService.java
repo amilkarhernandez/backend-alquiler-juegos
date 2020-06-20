@@ -16,5 +16,7 @@ public interface IAlquilerService {
 	public List<VideoJuego> findByTitulo(String term);
 	
 	public int restarStock(int stock, int cantidad);
+	
+	public List<Alquiler> findByNit(String nit);
 
 }

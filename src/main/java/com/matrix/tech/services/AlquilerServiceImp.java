@@ -44,4 +44,9 @@ public class AlquilerServiceImp implements IAlquilerService{
 		return stock-cantidad;
 	}
 
+	@Override
+	public List<Alquiler> findByNit(String nit) {
+		return alquilerDao.findByNit(nit);
+	}
+
 }

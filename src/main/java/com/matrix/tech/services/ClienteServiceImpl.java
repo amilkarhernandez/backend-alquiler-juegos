@@ -45,6 +45,7 @@ public class ClienteServiceImpl implements IClienteService{
 
 	@Override
 	public Cliente Actualizar(Cliente clienteActual, Cliente Actualizado) {
+		clienteActual.setNit(Actualizado.getNit());
 		clienteActual.setNombres(Actualizado.getNombres());
 		clienteActual.setApellidos(Actualizado.getApellidos());
 		clienteActual.setTelefono(Actualizado.getTelefono());
