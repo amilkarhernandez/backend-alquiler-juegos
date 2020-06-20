@@ -49,6 +49,7 @@ public class ClienteServiceImpl implements IClienteService{
 		clienteActual.setApellidos(Actualizado.getApellidos());
 		clienteActual.setTelefono(Actualizado.getTelefono());
 		clienteActual.setGenero(Actualizado.getGenero());
+		clienteActual.setFecha_nac(Actualizado.getFecha_nac());
 		
 		return clienteActual;
 	}

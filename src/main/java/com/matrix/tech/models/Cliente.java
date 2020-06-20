@@ -1,15 +1,22 @@
 package com.matrix.tech.models;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Cliente implements Serializable {
@@ -31,6 +38,14 @@ public class Cliente implements Serializable {
 	private String telefono;
 
 	private String genero;
+
+	@NotNull(message = "No puede Ser vacio")
+	@Temporal(TemporalType.DATE)
+	private Date fecha_nac;
+
+	@JsonIgnoreProperties({ "cliente", "hibernateLazyInitializer", "handler" })
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL)
+	private List<Alquiler> alquiler;
 
 	public Long getId() {
 		return id;
@@ -70,6 +85,22 @@ public class Cliente implements Serializable {
 
 	public void setGenero(String genero) {
 		this.genero = genero;
+	}
+
+	public Date getFecha_nac() {
+		return fecha_nac;
+	}
+
+	public void setFecha_nac(Date fecha_nac) {
+		this.fecha_nac = fecha_nac;
+	}
+
+	public List<Alquiler> getAlquiler() {
+		return alquiler;
+	}
+
+	public void setAlquiler(List<Alquiler> alquiler) {
+		this.alquiler = alquiler;
 	}
 
 	/**

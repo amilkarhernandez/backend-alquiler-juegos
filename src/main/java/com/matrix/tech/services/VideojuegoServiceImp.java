@@ -52,6 +52,8 @@ public class VideojuegoServiceImp implements IVideojuegoService{
 		videojuegoActual.setDirector(Actualizado.getDirector());
 		videojuegoActual.setProtagonistas(Actualizado.getProtagonistas());
 		videojuegoActual.setTecnologia(Actualizado.getTecnologia());
+		videojuegoActual.setValorUnitario(Actualizado.getValorUnitario());
+		videojuegoActual.setStock(Actualizado.getStock());
 		return videojuegoActual;
 	}
 

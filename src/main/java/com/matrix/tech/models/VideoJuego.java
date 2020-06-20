@@ -50,6 +50,12 @@ public class VideoJuego implements Serializable{
 	@Column(length = 500)
 	private String productor;
 	
+	@NotNull(message = "No puede Ser Vacio")
+	private Double valorUnitario;
+
+	@NotNull(message = "No puede Ser Vacio")
+	private int stock;
+	
 	@NotNull(message = "no puede ser vacia")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "tecnologia_id")
@@ -104,9 +110,16 @@ public class VideoJuego implements Serializable{
 	public void setTecnologia(TecnologiaCat tecnologia) {
 		this.tecnologia = tecnologia;
 	}
-	
-	
-	
-	
-	
+	public Double getValorUnitario() {
+		return valorUnitario;
+	}
+	public void setValorUnitario(Double valorUnitario) {
+		this.valorUnitario = valorUnitario;
+	}
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
 }
