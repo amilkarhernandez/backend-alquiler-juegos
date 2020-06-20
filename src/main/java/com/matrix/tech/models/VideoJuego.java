@@ -54,7 +54,7 @@ public class VideoJuego implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "tecnologia_id")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	private Tecnologia tecnologia;
+	private TecnologiaCat tecnologia;
 	
 	public Long getId() {
 		return id;
@@ -98,12 +98,13 @@ public class VideoJuego implements Serializable{
 	public void setProductor(String productor) {
 		this.productor = productor;
 	}
-	public Tecnologia getTecnologia() {
+	public TecnologiaCat getTecnologia() {
 		return tecnologia;
 	}
-	public void setTecnologia(Tecnologia tecnologia) {
+	public void setTecnologia(TecnologiaCat tecnologia) {
 		this.tecnologia = tecnologia;
 	}
+	
 	
 	
 	

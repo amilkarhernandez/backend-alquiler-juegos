@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import com.matrix.tech.dao.ITecnologiaDao;
-import com.matrix.tech.models.Tecnologia;
+import com.matrix.tech.models.TecnologiaCat;
 
 @Service
 public class TecnologiaServiceImp implements ITecnologiaService{
@@ -17,17 +17,17 @@ public class TecnologiaServiceImp implements ITecnologiaService{
 	private ITecnologiaDao tecnologiaDao;
 	
 	@Override
-	public List<Tecnologia> finAll() {
-		return (List<Tecnologia>)tecnologiaDao.findAll();
+	public List<TecnologiaCat> finAll() {
+		return (List<TecnologiaCat>) tecnologiaDao.findAll();
 	}
 
 	@Override
-	public Tecnologia findById(Long id) {
+	public TecnologiaCat findById(Long id) {
 		return tecnologiaDao.findById(id).orElse(null);
 	}
 
 	@Override
-	public Tecnologia save(Tecnologia tecnologia) {
+	public TecnologiaCat save(TecnologiaCat tecnologia) {
 		return tecnologiaDao.save(tecnologia);
 	}
 
@@ -44,7 +44,7 @@ public class TecnologiaServiceImp implements ITecnologiaService{
 	}
 
 	@Override
-	public Tecnologia Actualizar(Tecnologia tecnologiaActual, Tecnologia Actualizado) {
+	public TecnologiaCat Actualizar(TecnologiaCat tecnologiaActual, TecnologiaCat Actualizado) {
 		tecnologiaActual.setDescripcion(Actualizado.getDescripcion());
 		
 		return tecnologiaActual;

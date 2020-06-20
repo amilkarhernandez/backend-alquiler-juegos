@@ -2,8 +2,8 @@ package com.matrix.tech.dao;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.matrix.tech.models.Tecnologia;
+import com.matrix.tech.models.TecnologiaCat;
 
-public interface ITecnologiaDao extends CrudRepository<Tecnologia, Long>{
+public interface ITecnologiaDao extends CrudRepository<TecnologiaCat, Long>{
 
 }

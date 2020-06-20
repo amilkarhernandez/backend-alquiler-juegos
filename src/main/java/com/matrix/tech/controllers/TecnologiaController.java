@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.matrix.tech.models.Tecnologia;
+import com.matrix.tech.models.TecnologiaCat;
 import com.matrix.tech.services.ITecnologiaService;
 
 @CrossOrigin(origins = { "http://localhost:4200" })
@@ -34,14 +34,14 @@ public class TecnologiaController {
 	private ITecnologiaService tecnologiaService;
 	
 	@GetMapping("/tecnologias")
-	public List<Tecnologia> index() {
+	public List<TecnologiaCat> index() {
 		return tecnologiaService.finAll();
 	}
 	
 	@GetMapping("/tecnologias/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id) {
 
-		Tecnologia tecnologia = null;
+		TecnologiaCat tecnologia = null;
 		Map<String, Object> response = new HashMap<>();
 
 		try {
@@ -58,13 +58,13 @@ public class TecnologiaController {
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		}
 
-		return new ResponseEntity<Tecnologia>(tecnologia, HttpStatus.OK);
+		return new ResponseEntity<TecnologiaCat>(tecnologia, HttpStatus.OK);
 	}
 	
 	@PostMapping("/tecnologias")
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<?> create(@Valid @RequestBody Tecnologia tecnologia, BindingResult result) {
-		Tecnologia tecnologiaNew = null;
+	public ResponseEntity<?> create(@Valid @RequestBody TecnologiaCat tecnologia, BindingResult result) {
+		TecnologiaCat tecnologiaNew = null;
 		Map<String, Object> response = new HashMap<>();
 
 		if (result.hasErrors()) {
@@ -88,11 +88,11 @@ public class TecnologiaController {
 	}
 	
 	@PutMapping("/tecnologias/{id}")
-	public ResponseEntity<?> update(@Valid @RequestBody Tecnologia tecnologia, BindingResult result,
+	public ResponseEntity<?> update(@Valid @RequestBody TecnologiaCat tecnologia, BindingResult result,
 			@PathVariable Long id) {
 
-		Tecnologia tecnologiaActual = tecnologiaService.findById(id);
-		Tecnologia tecnologiaUpdated = null;
+		TecnologiaCat tecnologiaActual = tecnologiaService.findById(id);
+		TecnologiaCat tecnologiaUpdated = null;
 
 		Map<String, Object> response = new HashMap<>();
 
