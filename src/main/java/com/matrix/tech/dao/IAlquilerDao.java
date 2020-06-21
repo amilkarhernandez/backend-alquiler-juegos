@@ -16,5 +16,8 @@ public interface IAlquilerDao extends CrudRepository<Alquiler, Long>{
 	
 	@Query("SELECT a FROM Alquiler a WHERE a.fecha = :fechenv")
 	public List<Alquiler> findByFecha(@Param("fechenv") Date fechenv);
+
+	@Query("SELECT a FROM Alquiler a WHERE a.estado = 'ACTIVO'")
+	public List<Alquiler> findAllByEstado();
 	
 }

@@ -37,6 +37,8 @@ public class Alquiler implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fecha_entrega;
 
+	private String estado;
+
 	@JsonIgnoreProperties({ "alquiler", "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Cliente cliente;
@@ -53,7 +55,9 @@ public class Alquiler implements Serializable {
 	@PrePersist
 	public void PreGuardarFecha() {
 		this.fecha = new Date();
+		this.estado = "ACTIVO";
 	}
+
 
 	public Long getId() {
 		return id;
@@ -93,6 +97,14 @@ public class Alquiler implements Serializable {
 
 	public void setItems(List<ItemAlquiler> items) {
 		this.items = items;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 	public Double getTotal() {

@@ -68,6 +68,11 @@ public class AlquilerServiceImp implements IAlquilerService{
 		
 	}
 
+	@Override
+	public List<Alquiler> findAllByEstado() {
+		return (List<Alquiler>) alquilerDao.findAllByEstado();
+	}
+
 
 
 

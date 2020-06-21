@@ -96,5 +96,29 @@ public class AlquilerController {
 
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
+	
+	@GetMapping("/alquiler/list")
+	public List<Alquiler> index() {
+		return alquilerService.findAllByEstado();
+	}
+	
+	@GetMapping("/alquiler/devolver/{id}")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<?> cambiarEstado(@PathVariable Long id) {
+		Map<String, Object> response = new HashMap<>();
+		Alquiler alquiler = alquilerService.findAlquilerById(id);
+		for (ItemAlquiler item : alquiler.getItems()) {
+			VideoJuego videoMod = videojuegoService.findById(item.getVideojuego().getId());
+			videoMod.setStock(videoMod.getStock() + item.getCantidad());
+			videojuegoService.save(videoMod);
+		}
+		alquiler.setEstado("RECIBIDO");
+		alquilerService.saveAlquiler(alquiler);
+		
+		response.put("mensaje", "El Alquiler ha sido creado con Exito");
+		response.put("Alquiler", alquiler);
+
+		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
+	}
 
 }

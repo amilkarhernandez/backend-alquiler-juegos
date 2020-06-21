@@ -20,5 +20,7 @@ public interface IAlquilerService {
 	public List<Alquiler> findByNit(String nit);
 	
 	public List<Alquiler> findByFechaVenta(String fecha);
+	
+	public List<Alquiler> findAllByEstado();
 
 }
