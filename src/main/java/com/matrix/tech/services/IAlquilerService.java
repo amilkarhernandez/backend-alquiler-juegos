@@ -18,5 +18,7 @@ public interface IAlquilerService {
 	public int restarStock(int stock, int cantidad);
 	
 	public List<Alquiler> findByNit(String nit);
+	
+	public List<Alquiler> findByFechaVenta(String fecha);
 
 }

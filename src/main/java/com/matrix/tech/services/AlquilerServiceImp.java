@@ -1,6 +1,10 @@
 package com.matrix.tech.services;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +16,7 @@ import com.matrix.tech.models.VideoJuego;
 
 @Service
 public class AlquilerServiceImp implements IAlquilerService{
+	
 
 	@Autowired
 	private IAlquilerDao alquilerDao;
@@ -48,5 +53,22 @@ public class AlquilerServiceImp implements IAlquilerService{
 	public List<Alquiler> findByNit(String nit) {
 		return alquilerDao.findByNit(nit);
 	}
+
+
+	@Override
+	public List<Alquiler> findByFechaVenta(String fecha) {
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+		Date miFecha = null;
+		try {
+			miFecha = formato.parse(fecha);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return alquilerDao.findByFecha(miFecha);
+		
+	}
+
+
+
 
 }

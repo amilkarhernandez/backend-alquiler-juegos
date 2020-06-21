@@ -57,8 +57,14 @@ public class AlquilerController {
 	public List<Alquiler> buscarAlquilerNit(@PathVariable String nit) {
 		return (List<Alquiler>) alquilerService.findByNit(nit);
 	}
+	
+	@GetMapping("/alquiler/ventadia/{fecha}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Alquiler> buscarAlquilerFechaventa(@PathVariable String fecha) {
+		return (List<Alquiler>) alquilerService.findByFechaVenta(fecha);
+	}
 
-	@PostMapping("/facturas")
+	@PostMapping("/alquiler")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<?> crear(@RequestBody Alquiler alquiler) {
 		Alquiler alq = alquiler;
