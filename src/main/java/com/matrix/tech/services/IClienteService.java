@@ -19,5 +19,7 @@ public interface IClienteService {
 	public List<String> validacion(BindingResult result);
 	
 	public Cliente Actualizar(Cliente clienteActual, Cliente Actualizado);
+	
+	public Cliente findByNit(String nit);
 
 }

@@ -55,4 +55,9 @@ public class ClienteServiceImpl implements IClienteService{
 		return clienteActual;
 	}
 
+	@Override
+	public Cliente findByNit(String nit) {
+		return clienteDao.findByNit(nit);
+	}
+
 }

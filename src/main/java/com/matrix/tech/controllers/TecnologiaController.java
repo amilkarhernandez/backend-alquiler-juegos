@@ -82,7 +82,7 @@ public class TecnologiaController {
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		response.put("mensaje", "La tecnologia ha sido creada con Exito");
-		response.put("cliente", tecnologiaNew);
+		response.put("tecnologia", tecnologiaNew);
 
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}

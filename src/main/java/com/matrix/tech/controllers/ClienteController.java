@@ -61,6 +61,29 @@ public class ClienteController {
 		return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
 	}
 	
+	@GetMapping("/clientes/consulta/{nit}")
+	public ResponseEntity<?> consultaNit(@PathVariable String nit) {
+
+		Cliente cliente = null;
+		Map<String, Object> response = new HashMap<>();
+
+		try {
+			cliente = clienteService.findByNit(nit);
+		} catch (DataAccessException e) {
+			response.put("mensaje", "Error al Realizar la Consulta en la Base de datos");
+			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		if (cliente == null) {
+			response.put("mensaje",
+					"El Cliente con el Id:".concat(nit).concat(" no existe en la base de datos"));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+
+		return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
+	}
+	
 	@PostMapping("/clientes")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<?> create(@Validated @RequestBody Cliente cliente, BindingResult result) {
