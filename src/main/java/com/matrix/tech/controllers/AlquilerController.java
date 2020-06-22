@@ -115,7 +115,7 @@ public class AlquilerController {
 		alquiler.setEstado("RECIBIDO");
 		alquilerService.saveAlquiler(alquiler);
 		
-		response.put("mensaje", "El Alquiler ha sido creado con Exito");
+		response.put("mensaje", "El Alquiler ha sido Devuelto con Exito");
 		response.put("Alquiler", alquiler);
 
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);

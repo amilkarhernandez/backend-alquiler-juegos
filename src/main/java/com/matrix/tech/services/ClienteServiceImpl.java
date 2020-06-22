@@ -1,6 +1,9 @@
 package com.matrix.tech.services;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +31,10 @@ public class ClienteServiceImpl implements IClienteService{
 
 	@Override
 	public Cliente save(Cliente cliente) {
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy", Locale.US);
+		Date fechaActual = new Date();
+		Long edad = Long.valueOf(formato.format(fechaActual)) - Long.valueOf(formato.format(cliente.getFecha_nac()));
+		cliente.setEdad(edad);
 		return clienteDao.save(cliente);
 	}
 

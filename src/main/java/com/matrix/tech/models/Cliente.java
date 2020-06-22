@@ -43,6 +43,9 @@ public class Cliente implements Serializable {
 
 	private String genero;
 
+	@Column(length = 2)
+	private Long edad;
+
 	@NotNull(message = "No puede Ser vacio")
 	@Temporal(TemporalType.DATE)
 	private Date fecha_nac;
@@ -113,6 +116,14 @@ public class Cliente implements Serializable {
 
 	public void setAlquiler(List<Alquiler> alquiler) {
 		this.alquiler = alquiler;
+	}
+
+	public Long getEdad() {
+		return edad;
+	}
+
+	public void setEdad(Long edad) {
+		this.edad = edad;
 	}
 
 	/**
