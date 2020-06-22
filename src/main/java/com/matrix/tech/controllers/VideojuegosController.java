@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -137,6 +138,18 @@ public class VideojuegosController {
 
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
 
+	}
+	
+	@GetMapping("/videojuegos/total")
+	public Long total() {
+		return videojuegoService.count();
+	}
+	
+	@GetMapping("/videojuegos/busqueda")
+	public List<VideoJuego> busqueda(@RequestParam(value = "director") String director, 
+			@RequestParam(value = "protag") String protag, 
+			@RequestParam(value = "productor") String productor){
+		return videojuegoService.finByCustomize(director, protag, productor);
 	}
 	
 }

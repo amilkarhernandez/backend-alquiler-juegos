@@ -67,4 +67,9 @@ public class ClienteServiceImpl implements IClienteService{
 		return clienteDao.findByNit(nit);
 	}
 
+	@Override
+	public Long count() {
+		return clienteDao.count();
+	}
+
 }

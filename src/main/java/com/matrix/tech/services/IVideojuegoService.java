@@ -20,4 +20,9 @@ public interface IVideojuegoService {
 	public List<String> validacion(BindingResult result);
 	
 	public VideoJuego Actualizar(VideoJuego videojuegoActual, VideoJuego Actualizado);
+	
+	public Long count();
+	
+	//Consulta
+	public List<VideoJuego> finByCustomize(String director, String protag, String productor);
 }

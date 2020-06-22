@@ -21,5 +21,7 @@ public interface IClienteService {
 	public Cliente Actualizar(Cliente clienteActual, Cliente Actualizado);
 	
 	public Cliente findByNit(String nit);
+	
+	public Long count();
 
 }

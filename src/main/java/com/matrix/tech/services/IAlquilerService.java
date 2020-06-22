@@ -23,4 +23,5 @@ public interface IAlquilerService {
 	
 	public List<Alquiler> findAllByEstado();
 
+	public Long count();
 }

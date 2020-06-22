@@ -73,6 +73,11 @@ public class AlquilerServiceImp implements IAlquilerService{
 		return (List<Alquiler>) alquilerDao.findAllByEstado();
 	}
 
+	@Override
+	public Long count() {
+		return alquilerDao.count();
+	}
+
 
 
 

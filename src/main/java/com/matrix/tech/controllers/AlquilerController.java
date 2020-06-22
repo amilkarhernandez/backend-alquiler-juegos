@@ -120,5 +120,10 @@ public class AlquilerController {
 
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
+	
+	@GetMapping("/alquiler/total")
+	public Long total() {
+		return alquilerService.count();
+	}
 
 }

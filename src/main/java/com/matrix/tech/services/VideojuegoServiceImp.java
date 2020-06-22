@@ -57,4 +57,14 @@ public class VideojuegoServiceImp implements IVideojuegoService{
 		return videojuegoActual;
 	}
 
+	@Override
+	public Long count() {
+		return videojuegoDao.count();
+	}
+
+	@Override
+	public List<VideoJuego> finByCustomize(String director, String protag, String productor) {
+		return videojuegoDao.finByCustomize(director, protag, productor);
+	}
+
 }

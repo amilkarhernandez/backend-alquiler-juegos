@@ -162,4 +162,9 @@ public class ClienteController {
 
 	}
 	
+	@GetMapping("/clientes/total")
+	public Long total() {
+		return clienteService.count();
+	}
+	
 }
