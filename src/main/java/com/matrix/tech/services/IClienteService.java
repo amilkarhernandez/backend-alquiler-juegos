@@ -23,5 +23,7 @@ public interface IClienteService {
 	public Cliente findByNit(String nit);
 	
 	public Long count();
+	
+	public List<Cliente> findTopCliente();
 
 }

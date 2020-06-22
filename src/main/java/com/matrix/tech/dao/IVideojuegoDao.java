@@ -12,6 +12,6 @@ public interface IVideojuegoDao extends CrudRepository<VideoJuego, Long>{
 	@Query("select v from VideoJuego v where v.titulo like %?1% and v.stock > 0")
 	public List<VideoJuego> findByTitulo(String term);
 	
-	@Query("select v from VideoJuego v where v.director like %?1% and v.protagonistas like %?2% and v.productor like %?3%")
+	@Query("select v from VideoJuego v where v.director like %?1% or v.protagonistas like %?2% or v.productor like %?3%")
 	public List<VideoJuego> finByCustomize(String director, String protag, String productor);
 }

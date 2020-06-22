@@ -167,4 +167,9 @@ public class ClienteController {
 		return clienteService.count();
 	}
 	
+	@GetMapping("/clientes/top")
+	public List<Cliente> topClientes() {
+		return clienteService.findTopCliente();
+	}
+	
 }

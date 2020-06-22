@@ -72,4 +72,9 @@ public class ClienteServiceImpl implements IClienteService{
 		return clienteDao.count();
 	}
 
+	@Override
+	public List<Cliente> findTopCliente() {
+		return clienteDao.findTopCliente();
+	}
+
 }
