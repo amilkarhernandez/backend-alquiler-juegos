@@ -12,7 +12,7 @@ import javax.validation.constraints.NotEmpty;
 public class TecnologiaCat implements Serializable{
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	@NotEmpty(message = "No puede Ser vacio")

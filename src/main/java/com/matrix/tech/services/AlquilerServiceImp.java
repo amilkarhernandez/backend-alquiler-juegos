@@ -94,6 +94,7 @@ public class AlquilerServiceImp implements IAlquilerService{
 	@Override
 	public ByteArrayInputStream exportAlquiler(List<Alquiler> alquiler) throws IOException {
 		String[] columns = {"ID","NIT", "NOMBRES", "APELLIDOS", "VIDEO JUEGO", "FECHA ALQUILADO", "FECHA ENTREGA", "TOTAL"};
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
 		
 		try(Workbook workBook = new XSSFWorkbook();
 				ByteArrayOutputStream out = new ByteArrayOutputStream();){
