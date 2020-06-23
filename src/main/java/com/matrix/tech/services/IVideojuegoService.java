@@ -27,5 +27,5 @@ public interface IVideojuegoService {
 	//Consulta
 	public List<VideoJuego> finByCustomize(String director, String protag, String productor);
 	
-	//public List<Rangos> findRangosJuegos();
+	public List<Object[]> findRangosJuegos();
 }

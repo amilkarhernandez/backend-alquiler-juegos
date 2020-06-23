@@ -68,9 +68,9 @@ public class VideojuegoServiceImp implements IVideojuegoService{
 		return videojuegoDao.finByCustomize(director, protag, productor);
 	}
 
-	//@Override
-	//public List<Rangos> findRangosJuegos() {
-	//	return videojuegoDao.findRangosJuegos();
-	//}
+	@Override
+	public List<Object[]> findRangosJuegos() {
+		return videojuegoDao.findRangosJuegos();
+	}
 
 }

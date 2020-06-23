@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.matrix.tech.models.Alquiler;
-import com.matrix.tech.models.Cliente;
 import com.matrix.tech.models.ItemAlquiler;
 import com.matrix.tech.models.VideoJuego;
 import com.matrix.tech.services.IAlquilerService;

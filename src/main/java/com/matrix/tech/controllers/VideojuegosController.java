@@ -153,9 +153,9 @@ public class VideojuegosController {
 		return videojuegoService.finByCustomize(director, protag, productor);
 	}
 	
-	//@GetMapping("/videojuegos/rangos")
-	//public List<Rangos> rangos() {
-	//	return videojuegoService.findRangosJuegos();
-	//}
+	@GetMapping("/videojuegos/rangos")
+	public List<Object[]> rangos() {
+		return videojuegoService.findRangosJuegos();
+	}
 	
 }
