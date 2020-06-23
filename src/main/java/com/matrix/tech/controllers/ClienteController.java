@@ -1,11 +1,15 @@
 package com.matrix.tech.controllers;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.dao.DataAccessException;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -170,6 +174,15 @@ public class ClienteController {
 	@GetMapping("/clientes/top")
 	public List<Cliente> topClientes() {
 		return clienteService.findTopCliente();
+	}
+	
+	@GetMapping("/clientes/export")
+	public ResponseEntity<InputStreamResource> exportClienteExcel() throws IOException{
+		List<Cliente> clientes = clienteService.finAll();
+		ByteArrayInputStream bais = clienteService.exportClientes(clientes);
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-Disposition", "attachment; filename=clientes.xmls");
+		return ResponseEntity.ok().headers(headers).body(new InputStreamResource(bais));
 	}
 	
 }

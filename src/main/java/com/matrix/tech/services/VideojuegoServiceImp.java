@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import com.matrix.tech.dao.IVideojuegoDao;
+import com.matrix.tech.models.Rangos;
 import com.matrix.tech.models.VideoJuego;
 
 @Service
@@ -66,5 +67,10 @@ public class VideojuegoServiceImp implements IVideojuegoService{
 	public List<VideoJuego> finByCustomize(String director, String protag, String productor) {
 		return videojuegoDao.finByCustomize(director, protag, productor);
 	}
+
+	//@Override
+	//public List<Rangos> findRangosJuegos() {
+	//	return videojuegoDao.findRangosJuegos();
+	//}
 
 }

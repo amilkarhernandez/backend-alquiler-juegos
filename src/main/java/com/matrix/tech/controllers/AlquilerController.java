@@ -1,10 +1,17 @@
 package com.matrix.tech.controllers;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,6 +25,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.matrix.tech.models.Alquiler;
+import com.matrix.tech.models.Cliente;
 import com.matrix.tech.models.ItemAlquiler;
 import com.matrix.tech.models.VideoJuego;
 import com.matrix.tech.services.IAlquilerService;
@@ -124,6 +132,20 @@ public class AlquilerController {
 	@GetMapping("/alquiler/total")
 	public Long total() {
 		return alquilerService.count();
+	}
+	
+	@GetMapping("/alquiler/export")
+	public ResponseEntity<InputStreamResource> exportClienteExcel() throws IOException{
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+		String fechaHoy ="";
+		Date fecha = new Date();
+		fechaHoy = formato.format(fecha);
+		
+		List<Alquiler> alquiler = alquilerService.findByFechaVenta(fechaHoy);
+		ByteArrayInputStream bais = alquilerService.exportAlquiler(alquiler);
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-Disposition", "attachment; filename=clientes.xmls");
+		return ResponseEntity.ok().headers(headers).body(new InputStreamResource(bais));
 	}
 
 }

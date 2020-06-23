@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.matrix.tech.models.Rangos;
 import com.matrix.tech.models.VideoJuego;
 import com.matrix.tech.services.IVideojuegoService;
 
@@ -151,5 +152,10 @@ public class VideojuegosController {
 			@RequestParam(value = "productor") String productor){
 		return videojuegoService.finByCustomize(director, protag, productor);
 	}
+	
+	//@GetMapping("/videojuegos/rangos")
+	//public List<Rangos> rangos() {
+	//	return videojuegoService.findRangosJuegos();
+	//}
 	
 }

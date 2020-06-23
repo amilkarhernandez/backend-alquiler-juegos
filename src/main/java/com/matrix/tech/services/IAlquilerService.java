@@ -1,5 +1,7 @@
 package com.matrix.tech.services;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.List;
 
 import com.matrix.tech.models.Alquiler;
@@ -24,4 +26,6 @@ public interface IAlquilerService {
 	public List<Alquiler> findAllByEstado();
 
 	public Long count();
+	
+	public ByteArrayInputStream exportAlquiler(List<Alquiler> alquiler) throws IOException;
 }

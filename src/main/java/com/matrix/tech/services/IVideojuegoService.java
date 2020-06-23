@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.validation.BindingResult;
 
+import com.matrix.tech.models.Rangos;
 import com.matrix.tech.models.VideoJuego;
 
 
@@ -25,4 +26,6 @@ public interface IVideojuegoService {
 	
 	//Consulta
 	public List<VideoJuego> finByCustomize(String director, String protag, String productor);
+	
+	//public List<Rangos> findRangosJuegos();
 }

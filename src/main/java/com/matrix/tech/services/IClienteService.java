@@ -1,5 +1,7 @@
 package com.matrix.tech.services;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.validation.BindingResult;
@@ -25,5 +27,8 @@ public interface IClienteService {
 	public Long count();
 	
 	public List<Cliente> findTopCliente();
+
+	public ByteArrayInputStream exportClientes(List<Cliente> clientes) throws IOException;
+	
 
 }
